@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Gold Star Insulation LLC | Attic, Spray Foam & Blown-In Insulation — Cape Coral, FL</title>
 <meta name="description" content="Gold Star Insulation LLC — 5-star rated insulation contractor serving Cape Coral, FL. Attic insulation, spray foam, blown-in, batt & cellulose. Open 24 hours. Free estimates. Call (239) 414-8110." />
-<meta name="theme-color" content="#0b1f3a" />
+<meta name="theme-color" content="#0f3d2e" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Archivo:wght@600;700;800;900&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --navy:#0b1f3a;
-    --navy-2:#0f2c52;
-    --navy-deep:#071525;
+    --navy:#0f3d2e;
+    --navy-2:#16543d;
+    --navy-deep:#082018;
     --gold:#f5b301;
     --gold-2:#ffc933;
     --gold-soft:#fff4d1;
@@ -219,6 +219,49 @@
   footer ul li a:hover{color:var(--gold-2)}
   .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.6rem;font-size:.85rem;flex-wrap:wrap;gap:.6rem}
 
+  /* Logo image */
+  .logo-img{height:46px;width:auto;display:block}
+  .footer-logo{background:#fff;padding:10px 14px;border-radius:14px;display:inline-block}
+  .footer-logo img{height:54px;width:auto;display:block}
+
+  /* Hero photo card */
+  .hero-photo{position:relative;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);transform:rotate(-1.2deg);aspect-ratio:4/5}
+  .hero-photo img{width:100%;height:100%;object-fit:cover}
+  .hero-photo .grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,32,24,0) 40%,rgba(8,32,24,.85) 100%)}
+  .hero-photo .cap{position:absolute;left:18px;bottom:18px;right:18px;color:#fff}
+  .hero-photo .cap .stars{color:var(--gold);font-size:1.05rem;letter-spacing:2px}
+  .hero-photo .cap b{font-family:'Archivo';font-size:1.05rem;display:block;margin-top:.2rem}
+  .hero-photo .cap span{font-size:.82rem;color:#cfe0d4}
+
+  /* Why visual with photo */
+  .why-visual.photo{background:#082018;padding:0;overflow:hidden}
+  .why-visual.photo .bg{position:absolute;inset:0}
+  .why-visual.photo .bg img{width:100%;height:100%;object-fit:cover;opacity:.32}
+  .why-visual.photo .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(15,61,46,.82),rgba(8,32,24,.92))}
+  .why-visual.photo .inner{position:relative;padding:2.6rem}
+
+  /* Gallery */
+  .gallery{background:var(--bg-soft)}
+  .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:230px;gap:1.1rem}
+  .gal{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);cursor:pointer}
+  .gal img{width:100%;height:100%;object-fit:cover;transition:.55s ease}
+  .gal:hover img{transform:scale(1.08)}
+  .gal .lbl{position:absolute;left:0;right:0;bottom:0;padding:1.4rem 1rem .9rem;color:#fff;font-family:'Archivo';font-weight:700;font-size:.98rem;background:linear-gradient(180deg,transparent,rgba(8,32,24,.85));opacity:0;transform:translateY(8px);transition:.35s}
+  .gal:hover .lbl{opacity:1;transform:none}
+  .gal.tall{grid-row:span 2}
+  .gal.wide{grid-column:span 2}
+  @media(max-width:680px){
+    .gal-grid{grid-template-columns:1fr 1fr;grid-auto-rows:150px}
+    .gal.wide{grid-column:span 2}
+    .gal.tall{grid-row:span 1}
+  }
+
+  /* Lightbox */
+  .lb{position:fixed;inset:0;background:rgba(6,20,15,.92);z-index:100;display:none;align-items:center;justify-content:center;padding:24px}
+  .lb.open{display:flex}
+  .lb img{max-width:92vw;max-height:88vh;border-radius:12px;box-shadow:0 30px 80px -20px rgba(0,0,0,.8)}
+  .lb .x{position:absolute;top:20px;right:26px;color:#fff;font-size:2.2rem;cursor:pointer;font-family:'Archivo';line-height:1}
+
   /* Reveal animation */
   .reveal{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.16,.84,.44,1)}
   .reveal.in{opacity:1;transform:none}
@@ -266,14 +309,13 @@
 <header class="nav" id="nav">
   <div class="wrap">
     <a class="brand" href="#top">
-      <span class="badge-star">
-        <svg viewBox="0 0 24 24" fill="#0b1f3a"><path d="M12 2l2.9 6.2 6.8.8-5 4.7 1.3 6.7L12 17.8 5.9 20.4 7.2 13.7 2.2 9l6.8-.8z"/></svg>
-      </span>
+      <img class="logo-img" src="logo.jpg" alt="Gold Star Insulation logo" />
       <span>Gold Star Insulation<small>Cape Coral, Florida</small></span>
     </a>
     <nav class="links" id="navlinks">
       <a href="#services">Services</a>
       <a href="#why">Why Us</a>
+      <a href="#work">Our Work</a>
       <a href="#process">Process</a>
       <a href="#reviews">Reviews</a>
       <a href="#area">Service Area</a>
@@ -311,16 +353,14 @@
       </div>
     </div>
     <div class="hero-right reveal">
-      <div class="hero-card">
-        <div class="rt">
-          <span class="gmark">G</span>
-          <div>
-            <span class="score">5.0</span>
-            <div class="stars">★★★★★ <span style="color:#5a6b7e;font-size:.8rem;font-weight:600">(21 reviews)</span></div>
-          </div>
+      <div class="hero-photo">
+        <img src="work-hallway.jpg" alt="Gold Star Insulation batt insulation work in a Cape Coral home" />
+        <div class="grad"></div>
+        <div class="cap">
+          <div class="stars">★★★★★</div>
+          <b>5.0 Rated · 21 Google Reviews</b>
+          <span>Real work by our Cape Coral crew</span>
         </div>
-        <p class="quote">"Showed up on time, sealed and insulated our attic, and our AC bill dropped noticeably. Professional, clean, and fairly priced. Highly recommend!"</p>
-        <span class="who">— Verified Google Review · Cape Coral, FL</span>
         <div class="float-badge">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.2 6.8.8-5 4.7 1.3 6.7L12 17.8 5.9 20.4 7.2 13.7 2.2 9l6.8-.8z"/></svg>
           <div><b>Top Rated</b><span>Insulation Pro</span></div>
@@ -412,16 +452,19 @@
         </div>
       </div>
     </div>
-    <div class="why-visual reveal">
-      <h3>Insulation that pays for itself</h3>
-      <p style="color:#bcd0ec;margin-top:.8rem;position:relative">Proper insulation can dramatically cut the energy your AC works to push out — comfort you feel and savings you keep.</p>
-      <div class="why-stats">
-        <div class="s"><div class="n">Up to 20%</div><div class="l">Potential energy bill savings*</div></div>
-        <div class="s"><div class="n">Year-Round</div><div class="l">Cooler summers, comfier rooms</div></div>
-        <div class="s"><div class="n">Quieter</div><div class="l">Noticeably reduced outside noise</div></div>
-        <div class="s"><div class="n">Cleaner Air</div><div class="l">Fewer drafts, dust, and humidity</div></div>
+    <div class="why-visual photo reveal">
+      <div class="bg"><img src="shop.jpg" alt="Gold Star Insulation shop in Cape Coral, Florida" /></div>
+      <div class="inner">
+        <h3>Insulation that pays for itself</h3>
+        <p style="color:#cfe0d4;margin-top:.8rem;position:relative">Proper insulation can dramatically cut the energy your AC works to push out — comfort you feel and savings you keep.</p>
+        <div class="why-stats">
+          <div class="s"><div class="n">Up to 20%</div><div class="l">Potential energy bill savings*</div></div>
+          <div class="s"><div class="n">Year-Round</div><div class="l">Cooler summers, comfier rooms</div></div>
+          <div class="s"><div class="n">Quieter</div><div class="l">Noticeably reduced outside noise</div></div>
+          <div class="s"><div class="n">Cleaner Air</div><div class="l">Fewer drafts, dust, and humidity</div></div>
+        </div>
+        <p style="color:#9db8a6;font-size:.74rem;margin-top:1.6rem;position:relative">*Savings vary by home, existing insulation, and usage.</p>
       </div>
-      <p style="color:#7e95b6;font-size:.74rem;margin-top:1.6rem;position:relative">*Savings vary by home, existing insulation, and usage.</p>
     </div>
   </div>
 </section>
@@ -439,6 +482,25 @@
       <div class="step reveal"><div class="num">2</div><h4>Free Assessment</h4><p>We inspect your attic and spaces, then recommend the right insulation solution.</p></div>
       <div class="step reveal"><div class="num">3</div><h4>Clean Install</h4><p>Our crew installs efficiently and tidily, protecting your home throughout.</p></div>
       <div class="step reveal"><div class="num">4</div><h4>Enjoy the Comfort</h4><p>Feel the difference in temperature, noise, and your next energy bill.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section class="gallery" id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">Our Work</span>
+      <h2>Real Jobs, Real Cape Coral Homes</h2>
+      <p>A look at the attics, walls, and new-construction projects our crew handles every week.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal wide reveal" onclick="openLb('work-attic.jpg')"><img src="work-attic.jpg" alt="Blown-in attic insulation" /><div class="lbl">Attic Blown-In Insulation</div></div>
+      <div class="gal tall reveal" onclick="openLb('work-room.jpg')"><img src="work-room.jpg" alt="Wall batt insulation in a framed room" /><div class="lbl">Wall Batt Insulation</div></div>
+      <div class="gal reveal" onclick="openLb('work-wall.jpg')"><img src="work-wall.jpg" alt="Faced batt insulation and drywall prep" /><div class="lbl">Faced Batt & Drywall Prep</div></div>
+      <div class="gal reveal" onclick="openLb('work-hallway.jpg')"><img src="work-hallway.jpg" alt="Whole-home batt insulation" /><div class="lbl">Whole-Home Batt Work</div></div>
+      <div class="gal tall reveal" onclick="openLb('shop.jpg')"><img src="shop.jpg" alt="Gold Star Insulation Cape Coral shop" /><div class="lbl">Our Cape Coral Shop</div></div>
+      <div class="gal wide reveal" onclick="openLb('work-trailer.jpg')"><img src="work-trailer.jpg" alt="Gold Star Insulation work trailer and equipment" /><div class="lbl">Our Mobile Crew & Equipment</div></div>
     </div>
   </div>
 </section>
@@ -578,10 +640,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="brand" href="#top" style="margin-bottom:1rem">
-          <span class="badge-star"><svg viewBox="0 0 24 24" fill="#0b1f3a"><path d="M12 2l2.9 6.2 6.8.8-5 4.7 1.3 6.7L12 17.8 5.9 20.4 7.2 13.7 2.2 9l6.8-.8z"/></svg></span>
-          <span>Gold Star Insulation<small style="color:#7e95b6">Cape Coral, Florida</small></span>
-        </a>
+        <span class="footer-logo" style="margin-bottom:1.1rem"><img src="logo.jpg" alt="Gold Star Insulation logo" /></span>
         <p style="max-width:320px">Cape Coral's 5-star insulation contractor. Attic, spray foam, blown-in, batt & cellulose insulation for a cooler, quieter, more efficient home.</p>
       </div>
       <div>
@@ -612,6 +671,9 @@
   </div>
 </footer>
 
+<!-- Lightbox -->
+<div class="lb" id="lb" onclick="closeLb()"><span class="x">&times;</span><img id="lbImg" src="" alt="Gold Star Insulation work" /></div>
+
 <!-- Floating call -->
 <a href="tel:+12394148110" class="fab" aria-label="Call now">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.5 15.5 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11.4 11.4 0 003.6.58 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.58 3.6 1 1 0 01-.24 1z"/></svg>
@@ -619,6 +681,11 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Lightbox
+  function openLb(src){ const lb=document.getElementById('lb'); document.getElementById('lbImg').src=src; lb.classList.add('open'); }
+  function closeLb(){ document.getElementById('lb').classList.remove('open'); }
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeLb(); });
 
   // Sticky nav shadow
   const nav = document.getElementById('nav');
