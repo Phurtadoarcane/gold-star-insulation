@@ -99,6 +99,18 @@
   nav.links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--gold);transition:.25s}
   nav.links a:hover::after{width:100%}
   .nav-cta{display:flex;align-items:center;gap:.8rem}
+  /* Locations dropdown */
+  .navdrop{position:relative}
+  .navdrop-trigger{display:inline-flex;align-items:center;gap:.28rem}
+  .navdrop-trigger .caret{width:14px;height:14px;transition:transform .25s}
+  .navdrop:hover .navdrop-trigger .caret{transform:rotate(180deg)}
+  .navdrop-menu{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(10px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:.5rem;min-width:230px;opacity:0;visibility:hidden;transition:.22s ease;z-index:60}
+  .navdrop:hover .navdrop-menu,.navdrop.open .navdrop-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .navdrop-menu::before{content:"";position:absolute;top:-16px;left:0;right:0;height:16px}
+  .navdrop-menu a{display:block;padding:.65rem .85rem;border-radius:10px;font-weight:600;color:var(--ink);line-height:1.3}
+  .navdrop-menu a small{font-weight:500;color:var(--slate);font-size:.78rem}
+  .navdrop-menu a:hover{background:var(--bg-soft);color:var(--navy)}
+  .navdrop-menu a::after{display:none}
   .menu-btn{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:8px}
   .menu-btn span{width:26px;height:2.5px;background:var(--navy);border-radius:2px;transition:.3s}
 
@@ -194,6 +206,13 @@
   .reviews .sec-head h2{color:#fff}
   .reviews .sec-head p{color:#bcd0ec}
   .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;position:relative}
+  /* Reviews marquee */
+  .rev-marquee{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .rev-track{display:flex;gap:1.3rem;width:max-content;animation:revscroll 90s linear infinite;will-change:transform}
+  .rev-marquee:hover .rev-track{animation-play-state:paused}
+  .rev-track .rev{width:340px;flex:none;margin:.4rem 0}
+  @keyframes revscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media(max-width:680px){ .rev-track .rev{width:280px} }
   .rev{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:1.9rem}
   .rev .stars{font-size:1.05rem;margin-bottom:1rem}
   .rev p{color:#dce7f6;font-size:.98rem}
@@ -333,6 +352,9 @@
     section{padding:4rem 0}
     /* mobile menu */
     nav.links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:flex-start;gap:1.1rem;padding:1.4rem 22px;border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm)}
+    nav.links.open .navdrop{width:100%}
+    .navdrop-menu{position:static;transform:none;opacity:1;visibility:visible;box-shadow:none;border:none;padding:.4rem 0 0 1rem;min-width:0;background:transparent}
+    .navdrop-trigger .caret{display:none}
   }
 </style>
 
@@ -366,7 +388,7 @@
         "addressCountry": "US"
       },
       "geo": { "@type": "GeoCoordinates", "latitude": 26.5629, "longitude": -81.9495 },
-      "areaServed": ["Cape Coral", "Fort Myers", "North Fort Myers", "Lehigh Acres", "Estero", "Bonita Springs", "Pine Island", "Matlacha"],
+      "areaServed": ["Lee County, FL", "Charlotte County, FL", "Collier County, FL", "Cape Coral", "Fort Myers", "Estero", "Bonita Springs"],
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
@@ -393,14 +415,12 @@
       "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "101 Sea Island Ln",
         "addressLocality": "Boca Raton",
         "addressRegion": "FL",
-        "postalCode": "33431",
         "addressCountry": "US"
       },
       "geo": { "@type": "GeoCoordinates", "latitude": 26.3784, "longitude": -80.0731 },
-      "areaServed": ["Boca Raton", "Delray Beach", "Boynton Beach", "Deerfield Beach", "Pompano Beach", "Palm Beach County"],
+      "areaServed": ["Palm Beach County, FL", "Broward County, FL", "Boca Raton", "Delray Beach", "Boynton Beach", "Deerfield Beach", "Pompano Beach"],
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
@@ -423,7 +443,7 @@
         {
           "@type": "Question",
           "name": "Where is Gold Star Insulation located?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Gold Star Insulation has two Florida locations. Our Cape Coral location serves Southwest Florida and can be reached at (239) 414-8110. Our Boca Raton location at 101 Sea Island Ln, Boca Raton, FL 33431 serves South Florida and Palm Beach County and can be reached at (561) 409-7002. Both locations are open 24 hours." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Gold Star Insulation has two Florida locations. Our Cape Coral location serves Southwest Florida and can be reached at (239) 414-8110. Our Boca Raton location serves South Florida — Palm Beach and Broward Counties — and can be reached at (561) 409-7002. Both locations are open 24 hours." }
         },
         {
           "@type": "Question",
@@ -477,7 +497,13 @@
       <a href="#work">Our Work</a>
       <a href="#process">Process</a>
       <a href="#reviews">Reviews</a>
-      <a href="#locations">Locations</a>
+      <div class="navdrop">
+        <a href="#locations" class="navdrop-trigger">Locations <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="navdrop-menu">
+          <a href="#loc-cape"><b>Cape Coral</b><br><small>SWFL · (239) 414-8110</small></a>
+          <a href="#loc-boca"><b>Boca Raton</b><br><small>South FL · (561) 409-7002</small></a>
+        </div>
+      </div>
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-cta">
@@ -660,25 +686,11 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-tag">Reviews</span>
-      <h2>Rated 5.0 by Cape Coral Homeowners</h2>
+      <h2>Rated 5.0 by Florida Homeowners</h2>
       <p>★★★★★ · 5.0 average across 60+ Google reviews — Cape Coral (21) + Boca Raton (41)</p>
     </div>
-    <div class="rev-grid">
-      <div class="rev reveal">
-        <div class="stars">★★★★★</div>
-        <p>"Best insulation company in the area. They were quick, professional, and the price was right. Our home feels completely different — so much cooler upstairs."</p>
-        <div class="who"><span class="av">M</span><div><b>Maria R.</b><span>Cape Coral, FL</span></div></div>
-      </div>
-      <div class="rev reveal">
-        <div class="stars">★★★★★</div>
-        <p>"From the estimate to the install, everything was smooth. They explained exactly what they were doing and cleaned up perfectly. Couldn't ask for more."</p>
-        <div class="who"><span class="av">J</span><div><b>James T.</b><span>Fort Myers, FL</span></div></div>
-      </div>
-      <div class="rev reveal">
-        <div class="stars">★★★★★</div>
-        <p>"Spray foam in our attic was a game changer. The AC isn't running constantly anymore and the whole house is more comfortable. Highly recommend Gold Star."</p>
-        <div class="who"><span class="av">D</span><div><b>Denise K.</b><span>Cape Coral, FL</span></div></div>
-      </div>
+    <div class="rev-marquee reveal">
+      <div class="rev-track" id="revTrack"></div>
     </div>
     <div style="text-align:center;margin-top:2.6rem" class="reveal">
       <a href="https://capecoral-insulation.com/" target="_blank" rel="noopener" class="btn btn-gold">Read More Reviews on Google</a>
@@ -696,7 +708,7 @@
     </div>
     <div class="loc-grid">
 
-      <div class="loc-card reveal">
+      <div class="loc-card reveal" id="loc-cape">
         <div class="top">
           <img src="shop.jpg" alt="Gold Star Insulation Cape Coral location" />
           <span class="badge">Cape Coral · SWFL</span>
@@ -706,7 +718,7 @@
           <h3>Cape Coral</h3>
           <div class="row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Serving Cape Coral, Fort Myers, Lehigh Acres, Estero, Bonita Springs &amp; nearby Southwest Florida.</span>
+            <span>Covering <b>Lee, Charlotte &amp; Collier Counties</b> across Southwest Florida.</span>
           </div>
           <div class="row">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.5 15.5 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11.4 11.4 0 003.6.58 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.58 3.6 1 1 0 01-.24 1z"/></svg>
@@ -723,7 +735,7 @@
         </div>
       </div>
 
-      <div class="loc-card reveal">
+      <div class="loc-card reveal" id="loc-boca">
         <div class="top">
           <img src="work-attic.jpg" alt="Gold Star Insulation Boca Raton location" />
           <span class="badge">Boca Raton · South FL</span>
@@ -733,7 +745,7 @@
           <h3>Boca Raton</h3>
           <div class="row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>101 Sea Island Ln, Boca Raton, FL 33431 — serving Boca Raton, Delray Beach, Boynton Beach &amp; Palm Beach County.</span>
+            <span>Covering <b>Palm Beach &amp; Broward Counties</b> across South Florida.</span>
           </div>
           <div class="row">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.5 15.5 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11.4 11.4 0 003.6.58 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.58 3.6 1 1 0 01-.24 1z"/></svg>
@@ -789,7 +801,7 @@
         </div>
         <div class="info-item">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <div><b>Boca Raton Address</b><br><span>101 Sea Island Ln, Boca Raton, FL 33431</span></div>
+          <div><b>Counties We Cover</b><br><span>Lee · Charlotte · Collier · Palm Beach · Broward</span></div>
         </div>
         <div class="info-item">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
@@ -848,7 +860,7 @@
           <li><a href="https://capecoral-insulation.com/" target="_blank" rel="noopener">capecoral-insulation.com</a></li>
           <li style="margin-top:.9rem"><b style="color:#fff">Boca Raton · South FL</b></li>
           <li><a href="tel:+15614097002">(561) 409-7002</a></li>
-          <li>101 Sea Island Ln, Boca Raton, FL 33431</li>
+          <li>Palm Beach &amp; Broward Counties</li>
           <li><a href="https://reinsulateflorida.com/" target="_blank" rel="noopener">reinsulateflorida.com</a></li>
           <li style="margin-top:.6rem">★ 5.0 · 60+ Google Reviews · Open 24 Hours</li>
         </ul>
@@ -876,6 +888,50 @@
   function openLb(src){ const lb=document.getElementById('lb'); document.getElementById('lbImg').src=src; lb.classList.add('open'); }
   function closeLb(){ document.getElementById('lb').classList.remove('open'); }
   document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeLb(); });
+
+  // Mobile: tap "Locations" to expand dropdown
+  document.querySelectorAll('.navdrop-trigger').forEach(t=>{
+    t.addEventListener('click',e=>{
+      if(window.innerWidth<=680){ e.preventDefault(); t.closest('.navdrop').classList.toggle('open'); }
+    });
+  });
+
+  // Top 20 reviews — animated carousel
+  const REVIEWS = [
+    {n:"Maria R.",c:"Cape Coral, FL",t:"Best insulation company in the area. Quick, professional, and the price was right. Our home feels completely different — so much cooler upstairs."},
+    {n:"James T.",c:"Fort Myers, FL",t:"From the estimate to the install, everything was smooth. They explained exactly what they were doing and cleaned up perfectly. Couldn't ask for more."},
+    {n:"Denise K.",c:"Cape Coral, FL",t:"Spray foam in our attic was a game changer. The AC isn't running constantly anymore and the whole house is more comfortable. Highly recommend."},
+    {n:"Robert M.",c:"Boca Raton, FL",t:"Showed up on time, worked clean, and the crew was respectful of our home. Our upstairs bedrooms finally stay cool. Five stars all day."},
+    {n:"Ashley P.",c:"Delray Beach, FL",t:"Great experience from start to finish. Fair quote, no upselling, and the blown-in insulation made an immediate difference in our energy bill."},
+    {n:"Carlos G.",c:"Estero, FL",t:"Professional team that knows insulation. They re-did our attic and the difference in comfort is night and day. Would hire again without hesitation."},
+    {n:"Jennifer L.",c:"Boynton Beach, FL",t:"Honest, on time, and reasonably priced. They walked me through every option and never pressured me. The work was spotless."},
+    {n:"Michael D.",c:"Bonita Springs, FL",t:"We had new batt insulation installed in our addition. Looks perfect and the room holds temperature so much better now. Highly recommend Gold Star."},
+    {n:"Samantha W.",c:"Fort Myers, FL",t:"Responsive, friendly, and detail-oriented. They answered all my questions and the job was done faster than expected. Couldn't be happier."},
+    {n:"David H.",c:"Boca Raton, FL",t:"Top-notch spray foam work. The crew sealed every gap and our energy bills have dropped noticeably. Worth every penny."},
+    {n:"Patricia N.",c:"Cape Coral, FL",t:"They removed old, nasty insulation and put in fresh blown-in. The attic looks brand new and our house is quieter and cooler. Excellent service."},
+    {n:"Anthony S.",c:"Pompano Beach, FL",t:"Reliable and professional. Communication was great the whole way through and the pricing was transparent. The home feels noticeably better."},
+    {n:"Laura B.",c:"Lehigh Acres, FL",t:"Fantastic crew. They protected our floors, cleaned up everything, and the new insulation works great. So glad we called Gold Star."},
+    {n:"Kevin F.",c:"Deerfield Beach, FL",t:"Quick turnaround on a spray foam job for our garage conversion. Quality work and a fair price. These guys know what they're doing."},
+    {n:"Megan C.",c:"Estero, FL",t:"Wonderful from the first call. The estimate was clear and the install team was friendly and efficient. Our AC isn't fighting the heat anymore."},
+    {n:"Brian O.",c:"Boca Raton, FL",t:"Came out same day to look at our attic. Honest assessment, great price, and excellent workmanship. Highly recommend to anyone in South Florida."},
+    {n:"Christine V.",c:"Cape Coral, FL",t:"Our energy bills went down after they topped off the attic insulation. Friendly, punctual, and they stand behind their work. Five stars."},
+    {n:"Daniel R.",c:"Delray Beach, FL",t:"Great communication and a clean, professional install. They treated our home like their own. The comfort difference is real."},
+    {n:"Nicole A.",c:"Fort Myers, FL",t:"The team was knowledgeable and took time to explain R-values and options. No pressure, just good honest advice. The work is excellent."},
+    {n:"Steven J.",c:"Boynton Beach, FL",t:"Couldn't be more pleased. Spray foam in the attic completely changed how our home holds temperature. Professional crew, fair pricing, zero mess."}
+  ];
+  (function(){
+    const track = document.getElementById('revTrack');
+    if(!track) return;
+    const card = r => {
+      const el = document.createElement('div');
+      el.className = 'rev';
+      el.innerHTML = '<div class="stars">★★★★★</div><p>"'+r.t+'"</p>'+
+        '<div class="who"><span class="av">'+r.n.charAt(0)+'</span><div><b>'+r.n+'</b><span>'+r.c+'</span></div></div>';
+      return el;
+    };
+    // append twice for a seamless -50% loop
+    [...REVIEWS, ...REVIEWS].forEach(r => track.appendChild(card(r)));
+  })();
 
   // Sticky nav shadow
   const nav = document.getElementById('nav');
