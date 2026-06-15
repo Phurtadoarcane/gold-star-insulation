@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gold-star-insulation.vercel.app/sitemap.xml
