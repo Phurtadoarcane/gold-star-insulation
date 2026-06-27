@@ -1029,7 +1029,7 @@
         if(ci === 0){ cur = document.createElement('span'); if(seg.g) cur.className = 'gline'; out.appendChild(cur); }
         cur.textContent = seg.t.slice(0, ++ci);
         if(ci >= seg.t.length){ si++; ci = 0; }
-        setTimeout(step, 55);
+        setTimeout(step, 95);
       })();
     }
     if(document.fonts && document.fonts.ready){ document.fonts.ready.then(run); } else { run(); }
