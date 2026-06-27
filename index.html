@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Gold Star Insulation | Spray Foam, Attic & Blown-In Insulation — Cape Coral & Boca Raton, FL</title>
+<title>Gold Star Insulation</title>
 <meta name="description" content="Gold Star Insulation — 5.0-star rated insulation contractor with two Florida locations: Cape Coral (239-414-8110) and Boca Raton (561-409-7002). Spray foam, attic, blown-in, batt & cellulose insulation. Open 24 hours. Free estimates." />
 <meta name="keywords" content="insulation contractor Cape Coral, insulation contractor Boca Raton, spray foam insulation Florida, attic insulation, blown-in insulation, batt insulation, cellulose insulation, Gold Star Insulation, Southwest Florida insulation, South Florida insulation" />
 <meta name="author" content="Gold Star Insulation" />
@@ -94,7 +94,7 @@
   .badge-star{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--gold-2),var(--gold));display:grid;place-items:center;box-shadow:0 8px 18px -8px rgba(245,179,1,.8)}
   .badge-star svg{width:24px;height:24px}
   .brand small{display:block;font-family:'Plus Jakarta Sans';font-weight:600;font-size:.68rem;letter-spacing:.18em;color:var(--slate);text-transform:uppercase}
-  nav.links{display:flex;align-items:center;gap:1.9rem}
+  nav.links{display:flex;align-items:center;gap:1.45rem}
   nav.links a{font-weight:600;font-size:.96rem;color:var(--ink);position:relative}
   nav.links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--gold);transition:.25s}
   nav.links a:hover::after{width:100%}
@@ -283,9 +283,10 @@
   .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.6rem;font-size:.85rem;flex-wrap:wrap;gap:.6rem}
 
   /* Logo image */
-  .logo-img{height:46px;width:auto;display:block}
+  .logo-img{height:66px;width:auto;display:block}
+  @media(max-width:680px){ .logo-img{height:52px} }
   .footer-logo{background:#fff;padding:10px 14px;border-radius:14px;display:inline-block}
-  .footer-logo img{height:54px;width:auto;display:block}
+  .footer-logo img{height:74px;width:auto;display:block}
 
   /* Hero photo card */
   .hero-photo{position:relative;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);transform:rotate(-1.2deg);aspect-ratio:4/5}
@@ -324,6 +325,23 @@
   .lb.open{display:flex}
   .lb img{max-width:92vw;max-height:88vh;border-radius:12px;box-shadow:0 30px 80px -20px rgba(0,0,0,.8)}
   .lb .x{position:absolute;top:20px;right:26px;color:#fff;font-size:2.2rem;cursor:pointer;font-family:'Archivo';line-height:1}
+
+  /* Areas We Service */
+  .areas-wrap{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem;max-width:920px;margin:0 auto}
+  .areas-col h4{font-family:'Archivo';color:var(--navy);font-size:1.1rem;margin-bottom:1.1rem;display:flex;align-items:center;gap:.55rem}
+  .dotg{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--gold-2),var(--gold));display:inline-block;flex:none}
+  @media(max-width:680px){ .areas-wrap{grid-template-columns:1fr;gap:1.8rem} }
+
+  /* FAQ accordion */
+  .faq-list{max-width:840px;margin:0 auto;display:flex;flex-direction:column;gap:.9rem}
+  .faq-item{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+  .faq-item.open{border-color:transparent;box-shadow:var(--shadow-sm)}
+  .faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'Archivo';font-weight:700;font-size:1.05rem;color:var(--navy);padding:1.15rem 1.3rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  .faq-ic{flex:none;font-family:'Archivo';font-size:1.6rem;color:var(--gold);transition:transform .25s;line-height:1}
+  .faq-item.open .faq-ic{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .faq-a p{padding:0 1.3rem 1.2rem;color:var(--slate);font-size:.98rem;margin:0;line-height:1.6}
+  .faq-item.open .faq-a{max-height:360px}
 
   /* Reveal animation */
   .reveal{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.16,.84,.44,1)}
@@ -464,6 +482,16 @@
           "@type": "Question",
           "name": "Can spray foam insulation lower my energy bills in Florida?",
           "acceptedAnswer": { "@type": "Answer", "text": "Yes. Proper insulation such as spray foam reduces how hard your air conditioner works in the Florida heat, which can lower cooling costs, improve comfort, and reduce noise and humidity. Savings vary by home and existing insulation." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work on new construction homes?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Gold Star Insulation handles new construction and production homes as well as retrofits and re-insulation projects across Southwest and South Florida." }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does an insulation job take?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Most residential attic or batt insulation jobs are completed in a single day. After a quick assessment we provide a clear timeline and price before any work begins." }
         }
       ]
     }
@@ -504,6 +532,7 @@
           <a href="#loc-boca"><b>Boca Raton</b><br><small>South FL · (561) 409-7002</small></a>
         </div>
       </div>
+      <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-cta">
@@ -766,6 +795,49 @@
   </div>
 </section>
 
+<!-- Areas We Service -->
+<section id="areas">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">Areas We Service</span>
+      <h2>Where We Work</h2>
+      <p>Two locations covering Southwest and South Florida. If you're nearby and don't see your town, give us a call — chances are we cover it.</p>
+    </div>
+    <div class="areas-wrap reveal">
+      <div class="areas-col">
+        <h4><span class="dotg"></span> Southwest Florida — Cape Coral</h4>
+        <div class="area-chips">
+          <span class="chip">Cape Coral</span>
+          <span class="chip">Fort Myers</span>
+          <span class="chip">North Fort Myers</span>
+          <span class="chip">Lehigh Acres</span>
+          <span class="chip">Estero</span>
+          <span class="chip">Bonita Springs</span>
+          <span class="chip">Pine Island</span>
+          <span class="chip">Matlacha</span>
+          <span class="chip">Punta Gorda</span>
+          <span class="chip">Naples</span>
+        </div>
+      </div>
+      <div class="areas-col">
+        <h4><span class="dotg"></span> South Florida — Boca Raton</h4>
+        <div class="area-chips">
+          <span class="chip">Boca Raton</span>
+          <span class="chip">Delray Beach</span>
+          <span class="chip">Boynton Beach</span>
+          <span class="chip">Deerfield Beach</span>
+          <span class="chip">Pompano Beach</span>
+          <span class="chip">Lake Worth</span>
+          <span class="chip">Wellington</span>
+          <span class="chip">West Palm Beach</span>
+          <span class="chip">Coral Springs</span>
+          <span class="chip">Fort Lauderdale</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta">
   <div class="wrap reveal">
@@ -777,6 +849,47 @@
         Call (239) 414-8110
       </a>
       <a href="#contact" class="btn" style="background:var(--navy-deep);color:#fff">Request Online →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="services" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">FAQ</span>
+      <h2>Frequently Asked Questions</h2>
+      <p>Quick answers about our insulation services, locations, and what to expect.</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" type="button">Where is Gold Star Insulation located?<span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>We have two Florida locations. Our Cape Coral location serves Southwest Florida — Lee, Charlotte and Collier Counties — at (239) 414-8110. Our Boca Raton location serves South Florida — Palm Beach and Broward Counties — at (561) 409-7002. Both are open 24 hours.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">What insulation services do you offer?<span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>We install attic insulation, spray foam insulation, blown-in insulation, batt insulation, and cellulose insulation for existing homes and new construction across Southwest and South Florida.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Do you offer free estimates?<span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>Yes — free, no-pressure estimates at both locations. Call (239) 414-8110 in Cape Coral or (561) 409-7002 in Boca Raton, or request one through the form below.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">How is Gold Star Insulation rated?<span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>We hold a perfect 5.0-star rating on Google across both locations — 21 reviews in Cape Coral and 41 in Boca Raton.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Can new insulation lower my energy bills in Florida?<span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>Yes. Proper insulation such as spray foam or blown-in reduces how hard your air conditioner works in the Florida heat, which can lower cooling costs and improve comfort, noise, and humidity. Savings vary by home and existing insulation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Do you work on new construction homes?<span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>Absolutely. We handle new construction and production homes as well as retrofits and re-insulation projects — many of our reviews come from builders and homeowners building in Cape Coral.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">How long does an insulation job take?<span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>Most residential attic or batt jobs are completed in a single day. After a quick assessment we'll give you a clear timeline and price before any work begins.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -894,6 +1007,11 @@
     t.addEventListener('click',e=>{
       if(window.innerWidth<=680){ e.preventDefault(); t.closest('.navdrop').classList.toggle('open'); }
     });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click',()=>{ q.parentElement.classList.toggle('open'); });
   });
 
   // Top 20 reviews — animated carousel
