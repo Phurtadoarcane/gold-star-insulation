@@ -133,6 +133,8 @@
   .hero p.lead{font-size:1.18rem;color:#c4d4ea;max-width:560px;margin-bottom:2rem}
   .hero-svc{display:flex;flex-wrap:wrap;gap:.55rem;margin:-.4rem 0 1.9rem}
   .hero-svc span{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.30);color:#fff;font-weight:600;font-size:.85rem;padding:.45rem .95rem;border-radius:999px;backdrop-filter:blur(2px)}
+  .tw-cursor{display:inline-block;color:var(--gold-2);font-weight:400;margin-left:.03em;transform:translateY(-.02em);animation:blink 1.05s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
   .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
   .hero-trust{display:flex;gap:2rem;margin-top:2.6rem;flex-wrap:wrap}
   .hero-trust .t{display:flex;flex-direction:column}
@@ -558,7 +560,7 @@
   <div class="wrap hero-grid">
     <div class="hero-left reveal">
       <span class="eyebrow">★ 5.0 Rated Insulation Contractor</span>
-      <h1>Florida's <span class="gline">Gold Standard</span> in Home Insulation</h1>
+      <h1 id="heroTitle">Florida's <span class="gline">Gold Standard</span> in Home Insulation</h1>
       <p class="lead">Spray foam, blown-in, attic & batt insulation done right the first time. Lower energy bills, a quieter home, and year-round comfort — backed by a 5-star reputation across Southwest &amp; South Florida — two locations in Cape Coral &amp; Boca Raton.</p>
       <div class="hero-svc">
         <span>Attic Insulation</span>
@@ -1005,6 +1007,33 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Hero typewriter effect
+  (function(){
+    const h = document.getElementById('heroTitle');
+    if(!h) return;
+    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const segs = [
+      {t:"Florida's ", g:false},
+      {t:"Gold Standard", g:true},
+      {t:" in Home Insulation", g:false}
+    ];
+    function run(){
+      h.style.minHeight = h.offsetHeight + 'px';        // reserve space, no reflow jump
+      h.innerHTML = '<span class="tw-text"></span><span class="tw-cursor" aria-hidden="true">|</span>';
+      const out = h.querySelector('.tw-text');
+      let si = 0, ci = 0, cur = null;
+      (function step(){
+        if(si >= segs.length) return;                   // done; cursor keeps blinking
+        const seg = segs[si];
+        if(ci === 0){ cur = document.createElement('span'); if(seg.g) cur.className = 'gline'; out.appendChild(cur); }
+        cur.textContent = seg.t.slice(0, ++ci);
+        if(ci >= seg.t.length){ si++; ci = 0; }
+        setTimeout(step, 55);
+      })();
+    }
+    if(document.fonts && document.fonts.ready){ document.fonts.ready.then(run); } else { run(); }
+  })();
 
   // Lightbox
   function openLb(src){ const lb=document.getElementById('lb'); document.getElementById('lbImg').src=src; lb.classList.add('open'); }
