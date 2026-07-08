@@ -111,7 +111,9 @@
   <div class="foot-bottom"><span>&copy; 2026 Gold Star Insulation LLC. All rights reserved.</span><span>Licensed insulation contractor serving Southwest &amp; South Florida.</span></div>
 </div></footer>
 <script>
-var BOOKING_URL="/#contact";
-document.querySelectorAll("[data-book]").forEach(function(a){a.setAttribute("href",BOOKING_URL);if(/^https?:/i.test(BOOKING_URL)){a.target="_blank";a.rel="noopener";}});
+var HCP_BOOK_URL="https://book.housecallpro.com/book/GoldStar-Insulation-LLC/d3653022032045e8ab68cf0ee8b87ff5?v2=true";
+function bookNow(e){if(e&&e.preventDefault)e.preventDefault();if(window.HCPWidget&&typeof HCPWidget.openModal==="function"){HCPWidget.openModal();}else{window.open(HCP_BOOK_URL,"_blank","noopener");}return false;}
+document.querySelectorAll("[data-book]").forEach(function(a){a.setAttribute("href",HCP_BOOK_URL);a.addEventListener("click",bookNow);});
 </script>
+<script async src="https://online-booking.housecallpro.com/script.js?token=d3653022032045e8ab68cf0ee8b87ff5&orgName=GoldStar-Insulation-LLC"></script>
 </body></html>
