@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Gold Star Insulation</title>
 <meta name="description" content="Gold Star Insulation — 5.0-star rated insulation contractor with two Florida locations: Cape Coral (239-414-8110) and Boca Raton (561-409-7002). Spray foam, attic, blown-in, batt & cellulose insulation. Open 24 hours. Free estimates." />
-<meta name="keywords" content="insulation contractor Cape Coral, insulation contractor Boca Raton, spray foam insulation Florida, attic insulation, blown-in insulation, batt insulation, cellulose insulation, Gold Star Insulation, Southwest Florida insulation, South Florida insulation" />
+<meta name="keywords" content="insulation contractor Cape Coral, insulation contractor Boca Raton, spray foam insulation Florida, attic insulation, blown-in insulation, batt insulation, cellulose insulation, insulation removal, air sealing, new construction insulation, builder insulation, Gold Star Insulation, insulation Fort Myers, insulation Naples, insulation Estero, insulation Bonita Springs, insulation Punta Gorda, insulation Sanibel, insulation Delray Beach, insulation Boynton Beach, insulation West Palm Beach, Southwest Florida insulation, South Florida insulation" />
 <meta name="author" content="Gold Star Insulation" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#0f3d2e" />
@@ -347,6 +347,40 @@
   .faq-a p{padding:0 1.3rem 1.2rem;color:var(--slate);font-size:.98rem;margin:0;line-height:1.6}
   .faq-item.open .faq-a{max-height:360px}
 
+  /* Stat band */
+  .statband{background:linear-gradient(160deg,var(--navy),var(--navy-deep));color:#fff;padding:3.4rem 0}
+  .statband .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem;text-align:center}
+  .statband .st .n{font-family:'Archivo';font-weight:900;font-size:clamp(2rem,4vw,2.9rem);color:var(--gold-2);line-height:1}
+  .statband .st .l{color:#cfe0d4;font-size:.9rem;margin-top:.55rem;line-height:1.4}
+  .statband .src{grid-column:1/-1;color:#7e95b6;font-size:.72rem;margin-top:.6rem}
+  @media(max-width:680px){ .statband .wrap{grid-template-columns:1fr 1fr;gap:1.8rem} }
+
+  /* About / Family-owned */
+  .about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:3rem;align-items:center}
+  .about-photo{border-radius:24px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3}
+  .about-photo img{width:100%;height:100%;object-fit:cover}
+  .about-badge{display:inline-flex;align-items:center;gap:.45rem;background:var(--gold-soft);color:var(--navy);font-weight:700;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;padding:.42rem .9rem;border-radius:999px;margin-bottom:1.1rem}
+  .about-grid h2{font-family:'Archivo';font-size:clamp(1.9rem,3.8vw,2.7rem);color:var(--navy);font-weight:800}
+  .about-grid p{color:var(--slate);margin-top:1rem;font-size:1.02rem}
+  .about-sign{margin-top:1.4rem;font-family:'Archivo';color:var(--navy);font-weight:700}
+  .about-sign span{display:block;font-family:'Plus Jakarta Sans';font-weight:500;font-size:.85rem;color:var(--slate)}
+  @media(max-width:900px){ .about-grid{grid-template-columns:1fr;gap:2rem} }
+
+  /* Builders band */
+  .builders{background:linear-gradient(160deg,var(--navy),var(--navy-deep));color:#fff}
+  .builders .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2.6rem;align-items:center}
+  .builders .sec-tag{color:var(--gold)}
+  .builders h2{font-family:'Archivo';font-size:clamp(1.9rem,3.8vw,2.7rem);color:#fff;font-weight:800}
+  .builders p{color:#cfe0d4;margin-top:1rem}
+  .builders ul{list-style:none;margin-top:1.4rem;display:grid;gap:.75rem}
+  .builders li{display:flex;gap:.65rem;align-items:flex-start;color:#e8f0ea;font-size:1rem}
+  .builders li svg{flex:none;width:20px;height:20px;color:var(--gold-2);margin-top:3px}
+  .builders .bx{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:2.2rem;text-align:center}
+  .builders .bx h3{font-family:'Archivo';font-size:1.35rem;color:#fff;margin-bottom:.5rem}
+  .builders .bx p{color:#bcd0ec;margin:0 0 1.4rem}
+  .builders .bx .btn{width:100%;justify-content:center;margin-bottom:.7rem}
+  @media(max-width:900px){ .builders .wrap{grid-template-columns:1fr;gap:2rem} }
+
   /* Reveal animation */
   .reveal{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.16,.84,.44,1)}
   .reveal.in{opacity:1;transform:none}
@@ -391,8 +425,9 @@
       "url": "https://gold-star-insulation.vercel.app/",
       "logo": "https://gold-star-insulation.vercel.app/logo.jpg",
       "image": "https://gold-star-insulation.vercel.app/hero-fiberglass-poster.jpg",
-      "description": "Gold Star Insulation is a 5.0-star rated insulation contractor with two Florida locations serving Cape Coral, Boca Raton and the surrounding areas with spray foam, attic, blown-in, batt and cellulose insulation.",
-      "areaServed": ["Cape Coral, FL", "Fort Myers, FL", "Boca Raton, FL", "Palm Beach County, FL", "Southwest Florida", "South Florida"]
+      "description": "Gold Star Insulation is a family-owned, 5.0-star rated insulation contractor with two Florida locations serving Cape Coral, Boca Raton and the surrounding areas with spray foam, attic, blown-in, batt and cellulose insulation, insulation removal, air sealing, and new construction insulation.",
+      "founder": { "@type": "Person", "name": "Steven" },
+      "areaServed": ["Cape Coral, FL", "Fort Myers, FL", "Naples, FL", "Estero, FL", "Punta Gorda, FL", "Boca Raton, FL", "Delray Beach, FL", "Palm Beach County, FL", "Southwest Florida", "South Florida"]
     },
     {
       "@type": ["LocalBusiness", "HomeAndConstructionBusiness", "GeneralContractor"],
@@ -423,7 +458,10 @@
         {"@type":"Offer","itemOffered":{"@type":"Service","name":"Spray Foam Insulation"}},
         {"@type":"Offer","itemOffered":{"@type":"Service","name":"Blown-In Insulation"}},
         {"@type":"Offer","itemOffered":{"@type":"Service","name":"Batt Insulation"}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Cellulose Insulation"}}
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Cellulose Insulation"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Insulation Removal"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Air Sealing"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"New Construction Insulation"}}
       ]
     },
     {
@@ -455,7 +493,10 @@
         {"@type":"Offer","itemOffered":{"@type":"Service","name":"Spray Foam Insulation"}},
         {"@type":"Offer","itemOffered":{"@type":"Service","name":"Blown-In Insulation"}},
         {"@type":"Offer","itemOffered":{"@type":"Service","name":"Batt Insulation"}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Cellulose Insulation"}}
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Cellulose Insulation"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Insulation Removal"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Air Sealing"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"New Construction Insulation"}}
       ]
     },
     {
@@ -527,7 +568,7 @@
       <a href="#services">Services</a>
       <a href="#why">Why Us</a>
       <a href="#work">Our Work</a>
-      <a href="#process">Process</a>
+      <a href="#builders">Builders</a>
       <a href="#reviews">Reviews</a>
       <div class="navdrop">
         <a href="#locations" class="navdrop-trigger">Locations <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
@@ -594,6 +635,17 @@
   </div>
 </div>
 
+<!-- Stat band -->
+<section class="statband">
+  <div class="wrap">
+    <div class="st reveal"><div class="n">90%</div><div class="l">of U.S. homes are under-insulated</div></div>
+    <div class="st reveal"><div class="n">44%</div><div class="l">of home energy goes to heating &amp; cooling</div></div>
+    <div class="st reveal"><div class="n">Up to 15%</div><div class="l">energy savings with proper insulation</div></div>
+    <div class="st reveal"><div class="n">$176+</div><div class="l">average Cape Coral electric bill in 2026</div></div>
+    <div class="src">Sources: North American Insulation Manufacturers Association, U.S. Dept. of Energy / ENERGY STAR. Local bill figure is an area average; savings vary by home.</div>
+  </div>
+</section>
+
 <!-- Services -->
 <section class="services" id="services">
   <div class="wrap">
@@ -639,6 +691,18 @@
         <p>Not sure where you're losing energy? We inspect your home and recommend the smartest, highest-ROI improvements.</p>
         <a href="#contact" class="more">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
+      <div class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M6 6l1 15h10l1-15"/><path d="M10 10v7M14 10v7"/></svg></div>
+        <h3>Insulation Removal</h3>
+        <p>Old, damaged, or contaminated insulation? We safely remove and haul away worn-out material, then prep your attic for a clean, efficient new install.</p>
+        <a href="#contact" class="more">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h11a3 3 0 100-6"/><path d="M3 12h16a3 3 0 110 6"/><path d="M3 16h8"/></svg></div>
+        <h3>Air Sealing</h3>
+        <p>We seal the gaps and cracks that let conditioned air escape — a low-cost step that makes your new insulation work even harder against the Florida heat.</p>
+        <a href="#contact" class="more">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
     </div>
   </div>
 </section>
@@ -681,6 +745,46 @@
         </div>
         <p style="color:#9db8a6;font-size:.74rem;margin-top:1.6rem;position:relative">*Savings vary by home, existing insulation, and usage.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Family-Owned -->
+<section id="about" style="background:var(--bg-soft)">
+  <div class="wrap about-grid">
+    <div class="about-photo reveal">
+      <img src="work-trailer.jpg" alt="The Gold Star Insulation crew and equipment" />
+    </div>
+    <div class="reveal">
+      <span class="about-badge">★ Family-Owned · Locally Operated</span>
+      <h2>Family-Owned &amp; Run by Steven</h2>
+      <p>Gold Star Insulation isn't a national franchise — we're a local, family-owned company. When you call, you reach <b>Steven</b> directly. He takes the time to understand your home, walks you through your options with honest pricing and zero high-pressure sales, then makes sure the job is done right the first time.</p>
+      <p>From the first consultation to the final walkthrough, you get clear communication and a crew that treats your home like their own. That hands-on, personal approach is exactly why so many Southwest Florida homeowners and builders keep calling us back.</p>
+      <div class="about-sign">— Steven, Owner<span>Gold Star Insulation</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Builders -->
+<section class="builders" id="builders">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="sec-tag">New Construction &amp; Builders</span>
+      <h2>Building or Developing? We're Your Insulation Crew.</h2>
+      <p>Gold Star Insulation is a trusted partner for builders, general contractors, and developers across Southwest and South Florida. We handle new construction and production homes at scale — on schedule, to spec, and inspection-ready.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> New construction &amp; production homes</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Reliable scheduling that keeps your build on track</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Blown-in, batt &amp; spray foam installed to code</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Clean job sites and professional, licensed crews</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Volume &amp; repeat-builder pricing available</li>
+      </ul>
+    </div>
+    <div class="bx reveal">
+      <h3>Let's talk volume</h3>
+      <p>Get a bid for your next project or development. Fast quotes, dependable turnaround.</p>
+      <a href="tel:+12394148110" class="btn btn-gold">Call (239) 414-8110</a>
+      <a href="#contact" class="btn btn-ghost">Request a Bid →</a>
     </div>
   </div>
 </section>
