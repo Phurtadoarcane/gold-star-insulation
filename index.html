@@ -1270,15 +1270,26 @@
   function handleSubmit(e){
     e.preventDefault();
     const f = e.target;
-    const name = f.name.value.trim();
-    const phone = f.phone.value.trim();
-    const service = f.service.value;
-    const msg = encodeURIComponent(`New estimate request from ${name} (${phone}) — Service: ${service}. ${f.message.value}`);
-    const btn = f.querySelector('button');
-    btn.textContent = "✓ Thanks! We'll call you shortly";
-    btn.style.background = '#1f8f4e';
-    btn.style.color = '#fff';
-    setTimeout(()=>{ window.location.href='tel:+12394148110'; },1200);
+    const btn = f.querySelector('button[type="submit"]');
+    const original = btn.textContent;
+    btn.disabled = true; btn.textContent = "Sending…";
+    const data = Object.fromEntries(new FormData(f).entries());
+    data._subject = "New website estimate request — Gold Star Insulation";
+    fetch("https://formsubmit.co/ajax/steven@goldstarinsulation.co", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(data)
+    })
+    .then(function(r){ if(!r.ok) throw new Error("network"); return r.json(); })
+    .then(function(){
+      btn.textContent = "✓ Thanks! We'll be in touch shortly";
+      btn.style.background = "#1f8f4e"; btn.style.color = "#fff";
+      f.reset();
+    })
+    .catch(function(){
+      btn.disabled = false; btn.textContent = original;
+      alert("Sorry — something went wrong sending your request. Please call (239) 414-8110 and we'll take care of you.");
+    });
     return false;
   }
 
