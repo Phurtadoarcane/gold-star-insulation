@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gold-star-insulation.vercel.app/sitemap.xml
+Sitemap: https://capecoralinsulationfl.com/sitemap.xml
