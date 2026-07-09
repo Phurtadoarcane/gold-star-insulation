@@ -1159,6 +1159,7 @@
   var HCP_BOOK_URL = "https://book.housecallpro.com/book/GoldStar-Insulation-LLC/d3653022032045e8ab68cf0ee8b87ff5?v2=true";
   function bookNow(e){
     if(e && e.preventDefault) e.preventDefault();
+    if(window.va) window.va('event', { name: 'Book Assessment Click' });
     if(window.HCPWidget && typeof HCPWidget.openModal === 'function'){ HCPWidget.openModal(); }
     else { window.open(HCP_BOOK_URL, '_blank', 'noopener'); }
     return false;
@@ -1166,6 +1167,10 @@
   document.querySelectorAll('[data-book]').forEach(function(a){
     a.setAttribute('href', HCP_BOOK_URL);
     a.addEventListener('click', bookNow);
+  });
+  // Track click-to-call taps (phone links) as a conversion event
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
+    a.addEventListener('click', function(){ if(window.va) window.va('event', { name: 'Call Click' }); });
   });
 
   // Hero typewriter effect
@@ -1281,6 +1286,7 @@
     })
     .then(function(r){ if(!r.ok) throw new Error("network"); return r.json(); })
     .then(function(){
+      if(window.va) window.va('event', { name: 'Estimate Request' });
       btn.textContent = "✓ Thanks! We'll be in touch shortly";
       btn.style.background = "#1f8f4e"; btn.style.color = "#fff";
       f.reset();
@@ -1296,6 +1302,7 @@
   function heroSubmit(e){
     e.preventDefault();
     const f = e.target;
+    if(window.va) window.va('event', { name: 'Hero Assessment Submit' });
     const btn = f.querySelector('button');
     // If a Housecall Pro booking URL is set, send them there; otherwise thank + call fallback
     if(typeof BOOKING_URL !== 'undefined' && /^https?:/i.test(BOOKING_URL)){
