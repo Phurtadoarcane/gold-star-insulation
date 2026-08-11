@@ -109,3 +109,14 @@ footer a:hover{color:var(--gold-2)}
   .grid-3{grid-template-columns:1fr}
   .brand img{height:66px}
 }
+
+/* Sticky mobile CTA bar */
+.mobile-cta-bar{display:none}
+@media(max-width:600px){.mobile-cta-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:300;box-shadow:0 -6px 18px rgba(8,32,24,.22)}.mcb-btn{flex:1;text-align:center;padding:15px 8px;font-family:'Archivo',sans-serif;font-weight:800;font-size:1rem;color:#fff;text-decoration:none}.mcb-call{background:#0f3d2e}.mcb-book{background:linear-gradient(135deg,#ffc933,#f5b301);color:#082018}body{padding-bottom:60px}.assess-fab{display:none!important}}
+
+/* Explore more block */
+.explore{background:var(--bg-soft);border-top:1px solid var(--line);padding:2rem 0}
+.explore h3{color:var(--navy);font-family:'Archivo';font-size:1.15rem;margin-bottom:.9rem}
+.explore-links{display:flex;flex-wrap:wrap;gap:.7rem}
+.explore-links a{background:#fff;border:1px solid var(--line);border-radius:999px;padding:.55rem 1.1rem;font-weight:700;font-size:.9rem;color:var(--navy);text-decoration:none}
+.explore-links a:hover{border-color:var(--gold);color:var(--gold)}
